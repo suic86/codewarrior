@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "codewarrior/orderedcount"
+	. "github.com/suic86/codewarrior/orderedcount"
 )
 
 var _ = Describe("Test Suite", func() {

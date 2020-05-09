@@ -1,7 +1,7 @@
 package kata_test
 
 import (
-	. "codewarrior/kata"
+	. "github.com/suic86/codewarrior/kata"
 	"math/rand"
 	"strconv"
 	"strings"

@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "codewarrior/mixbonacci"
+	. "github.com/suic86/codewarrior/mixbonacci"
 )
 
 var _ = Describe("Test Suite", func() {
