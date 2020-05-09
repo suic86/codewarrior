@@ -52,12 +52,12 @@ func reference(pattern []string, length int) []int64 {
 		return []int64{}
 	}
 	generators := map[string]*generator{
-		"fib": &generator{[]int64{0, 1}, func(a []int64) int64 { return a[0] + a[1] }},
-		"pad": &generator{[]int64{1, 0, 0}, func(a []int64) int64 { return a[0] + a[1] }},
-		"jac": &generator{[]int64{0, 1}, func(a []int64) int64 { return 2*a[0] + a[1] }},
-		"pel": &generator{[]int64{0, 1}, func(a []int64) int64 { return a[0] + 2*a[1] }},
-		"tri": &generator{[]int64{0, 0, 1}, func(a []int64) int64 { return a[0] + a[1] + a[2] }},
-		"tet": &generator{[]int64{0, 0, 0, 1}, func(a []int64) int64 { return a[0] + a[1] + a[2] + a[3] }},
+		"fib": {[]int64{0, 1}, func(a []int64) int64 { return a[0] + a[1] }},
+		"pad": {[]int64{1, 0, 0}, func(a []int64) int64 { return a[0] + a[1] }},
+		"jac": {[]int64{0, 1}, func(a []int64) int64 { return 2*a[0] + a[1] }},
+		"pel": {[]int64{0, 1}, func(a []int64) int64 { return a[0] + 2*a[1] }},
+		"tri": {[]int64{0, 0, 1}, func(a []int64) int64 { return a[0] + a[1] + a[2] }},
+		"tet": {[]int64{0, 0, 0, 1}, func(a []int64) int64 { return a[0] + a[1] + a[2] + a[3] }},
 	}
 	result := make([]int64, 0, length)
 	pLength := len(pattern)
