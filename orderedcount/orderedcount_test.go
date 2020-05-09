@@ -12,8 +12,8 @@ import (
 
 var _ = Describe("Test Suite", func() {
 	It("Fixed Tests", func() {
-		Expect(OrderedCount("abracadabra")).Should(Equal([]Tuple{Tuple{'a', 5}, Tuple{'b', 2}, Tuple{'r', 2}, Tuple{'c', 1}, Tuple{'d', 1}}))
-		Expect(OrderedCount("Code Wars")).Should(Equal([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}}))
+		Expect(OrderedCount("abracadabra")).Should(Equal([]Tuple{{'a', 5}, {'b', 2}, {'r', 2}, {'c', 1}, {'d', 1}}))
+		Expect(OrderedCount("Code Wars")).Should(Equal([]Tuple{{'C', 1}, {'o', 1}, {'d', 1}, {'e', 1}, {' ', 1}, {'W', 1}, {'a', 1}, {'r', 1}, {'s', 1}}))
 		Expect(OrderedCount("")).Should(Equal([]Tuple{}))
 	})
 	It("Random Tests", func() {
