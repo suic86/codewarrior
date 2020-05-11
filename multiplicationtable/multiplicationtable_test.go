@@ -2,6 +2,7 @@ package multiplicationtable_test
 
 import (
 	"math/rand"
+	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -32,6 +33,10 @@ var _ = Describe("Test Suite", func() {
 		}
 	})
 })
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 func reference(size int) [][]int {
 	table := make([][]int, size)

@@ -2,6 +2,7 @@ package mixbonacci_test
 
 import (
 	"math/rand"
+	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -34,6 +35,10 @@ var _ = Describe("Test Suite", func() {
 		}
 	})
 })
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 type generator struct {
 	state       []int64
