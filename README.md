@@ -10,3 +10,4 @@ This repo contains my golang translation of CodeWars katas. One package is one t
 | multiplicationtable  | [Multiplication Table](https://www.codewars.com/kata/534d2f5b5371ecf8d2000a08)        |
 | uniq                 | [uniq (UNIX style)](https://www.codewars.com/kata/52249faee9abb9cefa0001ee)           |
 | mostfrequentdays     | [Most Frequent Weekdays](https://www.codewars.com/kata/56eb16655250549e4b0013f4)      |
+| findwithinarray      | [Find within array](https://www.codewars.com/kata/51f082ba7297b8f07f000001)           |
