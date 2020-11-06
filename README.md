@@ -12,3 +12,4 @@ This repo contains my golang translation of CodeWars katas. One package is one t
 | mostfrequentdays     | [Most Frequent Weekdays](https://www.codewars.com/kata/56eb16655250549e4b0013f4)         |
 | findwithinarray      | [Find within array](https://www.codewars.com/kata/51f082ba7297b8f07f000001)              |
 | vowelharmonyeasy     | [Hungarian Vowel Harmony (easy)](https://www.codewars.com/kata/57fd696e26b06857eb0011e7) |
+| arraycombinations    | [Array Combinations](https://www.codewars.com/kata/59e66e48fc3c499ec5000103)             |
