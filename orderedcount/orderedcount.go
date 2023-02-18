@@ -13,10 +13,10 @@ func OrderedCount(text string) []Tuple {
 		v, ok := counts[c]
 		if ok {
 			counts[c] = v + 1
-		} else {
-			counts[c] = 1
-			order = append(order, c)
+			continue
 		}
+		counts[c] = 1
+		order = append(order, c)
 	}
 
 	result := make([]Tuple, 0, len(order))
