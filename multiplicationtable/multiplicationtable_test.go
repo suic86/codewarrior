@@ -25,7 +25,7 @@ var _ = Describe("Test Suite", func() {
 		Expect(MultiplicationTable(3)).To(Equal([][]int{{1, 2, 3}, {2, 4, 6}, {3, 6, 9}}))
 	})
 	It("Random Tests", func() {
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			randomInput := rand.Intn(100)
 			expected := reference(randomInput)
 			Expect(MultiplicationTable(randomInput)).To(Equal(expected))
@@ -39,8 +39,8 @@ func reference(size int) [][]int {
 		table[i] = make([]int, size)
 	}
 
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
+	for i := range size {
+		for j := range size {
 			table[i][j] = (i + 1) * (j + 1)
 		}
 	}

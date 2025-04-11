@@ -22,7 +22,7 @@ var _ = Describe("Test Suite", func() {
 	})
 	It("Random Tests", func() {
 		var randomInput string
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			randomInput = randomText()
 			Expect(EncryptThis(randomInput)).Should(Equal(reference(randomInput)))
 		}
@@ -59,7 +59,7 @@ func swap(text string) string {
 // Random input generator
 func randomText() string {
 	var words []string
-	for i := 0; i < rand.Intn(20); i++ {
+	for range rand.Intn(20) {
 		words = append(words, randStringRunes(1+rand.Intn(5)))
 	}
 	return strings.Join(words, " ")

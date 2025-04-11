@@ -27,7 +27,7 @@ var _ = Describe("Test Suite", func() {
 		Expect(Mixbonacci([]string{"jac", "jac", "pel"}, 10)).Should(Equal([]int64{0, 1, 0, 1, 3, 1, 5, 11, 2, 21}))
 	})
 	It("Random Tests", func() {
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			pattern, length := randomInput()
 			expected := reference(pattern, length)
 			Expect(Mixbonacci(pattern, length)).Should(Equal(expected))

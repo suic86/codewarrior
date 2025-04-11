@@ -11,37 +11,37 @@ import (
 
 var _ = Describe("Sample Tests", func() {
 	It("Integer functions", func() {
-		Expect(FindInArray([]interface{}{}, isEven)).Should(Equal(-1))
-		Expect(FindInArray([]interface{}{1, 3, 5, 6, 7}, isEven)).Should(Equal(3))
-		Expect(FindInArray([]interface{}{2, 4, 6, 8}, isEven)).Should(Equal(0))
-		Expect(FindInArray([]interface{}{2, 4, 6, 8}, neverTrue)).Should(Equal(-1))
-		Expect(FindInArray([]interface{}{13, 5, 3, 1, 4, 5}, isValueEqualToIndex)).Should(Equal(4))
-		Expect(FindInArray([]interface{}{-3, -9, 8, 7, -9, 7, 4, 7, 1}, isValueEqualToIndex)).Should(Equal(7))
+		Expect(FindInArray([]any{}, isEven)).Should(Equal(-1))
+		Expect(FindInArray([]any{1, 3, 5, 6, 7}, isEven)).Should(Equal(3))
+		Expect(FindInArray([]any{2, 4, 6, 8}, isEven)).Should(Equal(0))
+		Expect(FindInArray([]any{2, 4, 6, 8}, neverTrue)).Should(Equal(-1))
+		Expect(FindInArray([]any{13, 5, 3, 1, 4, 5}, isValueEqualToIndex)).Should(Equal(4))
+		Expect(FindInArray([]any{-3, -9, 8, 7, -9, 7, 4, 7, 1}, isValueEqualToIndex)).Should(Equal(7))
 	})
 	It("String Functions", func() {
-		Expect(FindInArray([]interface{}{"one", "two", "three", "four", "five", "six"}, isLengthEqualToIndex)).Should(Equal(4))
-		Expect(FindInArray([]interface{}{"bc", "af", "d", "e"}, isLengthEqualToIndex)).Should(Equal(-1))
+		Expect(FindInArray([]any{"one", "two", "three", "four", "five", "six"}, isLengthEqualToIndex)).Should(Equal(4))
+		Expect(FindInArray([]any{"bc", "af", "d", "e"}, isLengthEqualToIndex)).Should(Equal(-1))
 	})
 })
 
 var _ = Describe("Fixed Tests", func() {
 	It("Integer functions", func() {
-		Expect(FindInArray([]interface{}{}, isEven)).Should(Equal(-1))
-		Expect(FindInArray([]interface{}{1, 3, 5, 6, 7}, isEven)).Should(Equal(3))
-		Expect(FindInArray([]interface{}{2, 4, 6, 8}, isEven)).Should(Equal(0))
-		Expect(FindInArray([]interface{}{2, 4, 6, 8}, neverTrue)).Should(Equal(-1))
-		Expect(FindInArray([]interface{}{13, 5, 3, 1, 4, 5}, isValueEqualToIndex)).Should(Equal(4))
-		Expect(FindInArray([]interface{}{-3, -9, 8, 7, -9, 7, 4, 7, 1}, isValueEqualToIndex)).Should(Equal(7))
+		Expect(FindInArray([]any{}, isEven)).Should(Equal(-1))
+		Expect(FindInArray([]any{1, 3, 5, 6, 7}, isEven)).Should(Equal(3))
+		Expect(FindInArray([]any{2, 4, 6, 8}, isEven)).Should(Equal(0))
+		Expect(FindInArray([]any{2, 4, 6, 8}, neverTrue)).Should(Equal(-1))
+		Expect(FindInArray([]any{13, 5, 3, 1, 4, 5}, isValueEqualToIndex)).Should(Equal(4))
+		Expect(FindInArray([]any{-3, -9, 8, 7, -9, 7, 4, 7, 1}, isValueEqualToIndex)).Should(Equal(7))
 	})
 	It("String Functions", func() {
-		Expect(FindInArray([]interface{}{"one", "two", "three", "four", "five", "six"}, isLengthEqualToIndex)).Should(Equal(4))
-		Expect(FindInArray([]interface{}{"bc", "af", "d", "e"}, isLengthEqualToIndex)).Should(Equal(-1))
+		Expect(FindInArray([]any{"one", "two", "three", "four", "five", "six"}, isLengthEqualToIndex)).Should(Equal(4))
+		Expect(FindInArray([]any{"bc", "af", "d", "e"}, isLengthEqualToIndex)).Should(Equal(-1))
 	})
 })
 
 var _ = Describe("Random Tests", func() {
 	It("Random Tests", func() {
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			a, p := randomInput()
 			expected := solution(a, p)
 			Expect(FindInArray(a, p)).Should(Equal(expected))
@@ -55,24 +55,24 @@ func init() {
 	}
 }
 
-func randomInput() ([]interface{}, func(interface{}, int) bool) {
+func randomInput() ([]any, func(any, int) bool) {
 	minLength, maxLength := 0, 30
 
 	sps := len(stringPredicates)
 	ips := len(integerPredicates)
-	var arr []interface{}
-	var predicate func(interface{}, int) bool
+	var arr []any
+	var predicate func(any, int) bool
 
 	if rand.Float32() < 0.8 {
 		ri := randomIntegers(minLength, maxLength)
-		arr = make([]interface{}, len(ri))
+		arr = make([]any, len(ri))
 		for i, v := range ri {
 			arr[i] = v
 		}
 		predicate = integerPredicates[rand.Intn(ips)]
 	} else {
 		rw := randomWords(minLength, maxLength)
-		arr = make([]interface{}, len(rw))
+		arr = make([]any, len(rw))
 		for i, w := range rw {
 			arr[i] = w
 		}
@@ -82,7 +82,7 @@ func randomInput() ([]interface{}, func(interface{}, int) bool) {
 	return arr, predicate
 }
 
-func solution(array []interface{}, predicate func(interface{}, int) bool) int {
+func solution(array []any, predicate func(any, int) bool) int {
 	for i, v := range array {
 		if predicate(v, i) {
 			return i
@@ -122,7 +122,7 @@ func randStringRunes(n int) string {
 
 // predicates
 
-var stringPredicates []func(interface{}, int) bool = []func(interface{}, int) bool{
+var stringPredicates []func(any, int) bool = []func(any, int) bool{
 	alwaysTrue,
 	neverTrue,
 	isLengthEqualToIndex,
@@ -130,7 +130,7 @@ var stringPredicates []func(interface{}, int) bool = []func(interface{}, int) bo
 	isLengthLessThanIndex,
 }
 
-var integerPredicates []func(interface{}, int) bool = []func(interface{}, int) bool{
+var integerPredicates []func(any, int) bool = []func(any, int) bool{
 	alwaysTrue,
 	neverTrue,
 	isEven,
@@ -139,46 +139,46 @@ var integerPredicates []func(interface{}, int) bool = []func(interface{}, int) b
 	isValueGreaterThanIndex,
 }
 
-func alwaysTrue(v interface{}, index int) bool {
+func alwaysTrue(v any, index int) bool {
 	return true
 }
 
-func neverTrue(v interface{}, index int) bool {
+func neverTrue(v any, index int) bool {
 	return false
 }
 
 // integer predicates
 
-func isEven(v interface{}, index int) bool {
+func isEven(v any, index int) bool {
 	return int(v.(int))%2 == 0
 }
 
-func isOdd(v interface{}, index int) bool {
+func isOdd(v any, index int) bool {
 	return int(v.(int))%2 == 1
 }
 
-func isValueGreaterThanIndex(v interface{}, index int) bool {
+func isValueGreaterThanIndex(v any, index int) bool {
 	return v.(int) > index
 }
 
-func isValueEqualToIndex(v interface{}, index int) bool {
+func isValueEqualToIndex(v any, index int) bool {
 	return v.(int) == index
 }
 
-func isMultiplyOfN(n int) func(interface{}, int) bool {
-	return func(v interface{}, index int) bool { return v.(int)%n == 0 }
+func isMultiplyOfN(n int) func(any, int) bool {
+	return func(v any, index int) bool { return v.(int)%n == 0 }
 }
 
 // string predicates
 
-func isLengthEqualToIndex(v interface{}, index int) bool {
+func isLengthEqualToIndex(v any, index int) bool {
 	return len(v.(string)) == index
 }
 
-func isLengthGreaterThanIndex(v interface{}, index int) bool {
+func isLengthGreaterThanIndex(v any, index int) bool {
 	return len(v.(string)) > index
 }
 
-func isLengthLessThanIndex(v interface{}, index int) bool {
+func isLengthLessThanIndex(v any, index int) bool {
 	return len(v.(string)) < index
 }

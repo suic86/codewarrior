@@ -17,7 +17,7 @@ var _ = Describe("Test Suite", func() {
 	})
 	It("Random Tests", func() {
 		var randomInput string
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			randomInput = randomText()
 			Expect(OrderedCount(randomInput)).Should(Equal(reference(randomInput)))
 		}

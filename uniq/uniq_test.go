@@ -32,7 +32,7 @@ var _ = Describe("Test Suite", func() {
 
 	It("Random Tests", func() {
 		var ri, expected []string
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			ri = randomInput()
 			expected = reference(ri)
 			Expect(Uniq(ri), expected)
@@ -44,9 +44,9 @@ func randomInput() []string {
 	alphabet := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 	alength := len(alphabet)
 	var result []string
-	for j := 0; j < rand.Intn(15); j++ {
+	for range rand.Intn(15) {
 		w := alphabet[rand.Intn(alength)]
-		for i := 0; i < (1 + rand.Intn(5)); i++ {
+		for range 1 + rand.Intn(5) {
 			result = append(result, w)
 		}
 	}
