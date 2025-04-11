@@ -5,7 +5,6 @@ import (
 	"math/rand"
 	"strconv"
 	"strings"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -70,10 +69,6 @@ func randomText() string {
 
 var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 var length = len(letterRunes)
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 func randStringRunes(n int) string {
 	b := make([]rune, n)

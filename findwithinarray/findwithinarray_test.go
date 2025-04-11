@@ -2,7 +2,6 @@ package findwithinarray_test
 
 import (
 	"math/rand"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -51,7 +50,6 @@ var _ = Describe("Random Tests", func() {
 })
 
 func init() {
-	rand.Seed(time.Now().UnixNano())
 	for i := 2; i < 8; i++ {
 		integerPredicates = append(integerPredicates, isMultiplyOfN(i))
 	}

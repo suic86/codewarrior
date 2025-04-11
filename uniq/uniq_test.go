@@ -2,7 +2,6 @@ package uniq_test
 
 import (
 	"math/rand"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -40,10 +39,6 @@ var _ = Describe("Test Suite", func() {
 		}
 	})
 })
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 func randomInput() []string {
 	alphabet := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}

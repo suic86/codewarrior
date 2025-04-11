@@ -2,7 +2,6 @@ package orderedcount_test
 
 import (
 	"math/rand"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -59,10 +58,6 @@ func randomText() string {
 
 var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~0123456789     ")
 var length = len(letterRunes)
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 func randStringRunes(n int) string {
 	b := make([]rune, n)

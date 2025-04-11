@@ -10,10 +10,6 @@ import (
 	. "github.com/suic86/codewarrior/mostfrequentdays"
 )
 
-func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
-}
-
 func test(input int, expected ...string) {
 	Expect(MostFrequentDays(input)).To(Equal(expected))
 }

@@ -4,7 +4,6 @@ import (
 	"errors"
 	"math/rand"
 	"strings"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -24,10 +23,6 @@ var _ = Describe("Sample Tests", func() {
 		Expect(Dative("rossz")).To(Equal("rossznak"))
 	})
 })
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 var randomWords = strings.Fields("kalap ház tűz víz méz kéz ember rák máz üveg pohár húr gödör csűr lakás rokon")
 var front = strings.Fields("terv kérvény vény kép hit tök őr füst űr")

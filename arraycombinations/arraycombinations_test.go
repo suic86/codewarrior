@@ -2,17 +2,12 @@ package arraycombinations_test
 
 import (
 	"math/rand"
-	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
 	. "github.com/suic86/codewarrior/arraycombinations"
 )
-
-func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
-}
 
 var _ = Describe("Sample Tests", func() {
 	It("should work with sample tests", func() {
