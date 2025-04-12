@@ -26,7 +26,7 @@ func Mixbonacci(pattern []string, length int) []int64 {
 	}
 	result := make([]int64, 0, length)
 	pLength := len(pattern)
-	for i := 0; i < length; i++ {
+	for i := range length {
 		result = append(result, generators[pattern[i%pLength]].next())
 	}
 	return result

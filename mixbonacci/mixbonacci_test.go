@@ -61,7 +61,7 @@ func reference(pattern []string, length int) []int64 {
 	}
 	result := make([]int64, 0, length)
 	pLength := len(pattern)
-	for i := 0; i < length; i++ {
+	for i := range length {
 		result = append(result, generators[pattern[i%pLength]].next())
 	}
 	return result
@@ -71,7 +71,7 @@ func randomInput() ([]string, int) {
 	sequences := []string{"fib", "pad", "jac", "pel", "tri", "tet"}
 	patternLength := rand.Intn(20)
 	var pattern []string
-	for i := 0; i < patternLength; i++ {
+	for range patternLength {
 		pattern = append(pattern, sequences[rand.Intn(6)])
 	}
 	return pattern, rand.Intn(51)

@@ -50,7 +50,7 @@ var _ = Describe("Test Suite", func() {
 	})
 
 	It("Random Tests", func() {
-		for i := 0; i < 90; i++ {
+		for range 90 {
 			ry := 1593 + rand.Intn(8408)
 			Expect(MostFrequentDays(ry)).Should(Equal(reference(ry)))
 		}

@@ -29,7 +29,7 @@ var _ = Describe("Fixed Tests", func() {
 
 var _ = Describe("Random Tests", func() {
 	It("should work with random tests", func() {
-		for i := 0; i < 100; i++ {
+		for range 100 {
 			ra := randomArray()
 			exp := solution(ra)
 			Expect(Solve(ra)).To(Equal(exp))
