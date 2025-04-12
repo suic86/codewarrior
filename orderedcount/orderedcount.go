@@ -10,9 +10,8 @@ func OrderedCount(text string) []Tuple {
 	order := make([]rune, 0, len(text))
 
 	for _, c := range text {
-		v, ok := counts[c]
-		if ok {
-			counts[c] = v + 1
+		if _, ok := counts[c]; ok {
+			counts[c] += 1
 			continue
 		}
 		counts[c] = 1
